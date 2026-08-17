@@ -1,0 +1,33 @@
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Editores
+.idea/
+.vscode/
+*.swp
+
+# Variáveis e segredos
+.env
+.env.*
+!.env.example
+
+# Dependências e builds comuns
+node_modules/
+dist/
+build/
+coverage/
+
+# Android
+.gradle/
+local.properties
+*.apk
+*.aab
+
+# Flutter/Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+pubspec.lock
+

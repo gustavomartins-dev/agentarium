@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#17130f" />
+    <meta name="color-scheme" content="dark" />
+    <meta
+      name="description"
+      content="Agentarium — uma vila medieval viva para encontrar e acompanhar seus agentes de IA."
+    />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%2377352f' stroke='%23e5ad45' stroke-width='2' d='M4 3h24v18L16 29 4 21z'/%3E%3Cpath stroke='%23ffe39a' stroke-width='3' d='m10 9 12 12m0-12L10 21'/%3E%3C/svg%3E" />
+    <title>Agentarium · Vila dos Agentes</title>
+  </head>
+  <body>
+    <main id="app">
+      <canvas
+        id="game-canvas"
+        tabindex="0"
+        aria-label="Vila medieval navegável do Agentarium"
+        aria-describedby="game-instructions"
+      ></canvas>
+
+      <div id="hud" class="game-hud">
+        <header class="top-rail" aria-label="Informações da exploração">
+          <div class="brand-lockup" aria-label="Agentarium">
+            <span class="brand-crest" aria-hidden="true"><i></i></span>
+            <span class="brand-copy">
+              <strong>Agentarium</strong>
+              <small>Vila dos agentes</small>
+            </span>
+          </div>
+
+          <section class="quest-ribbon" aria-labelledby="quest-title">
+            <span class="quest-ribbon__pin" aria-hidden="true">◆</span>
+            <div class="quest-copy">
+              <span class="eyebrow">Missão de exploração</span>
+              <strong id="quest-title">Conheça os locais da vila</strong>
+              <div
+                class="quest-progress"
+                role="progressbar"
+                aria-label="Locais descobertos"
+                aria-valuemin="0"
+                aria-valuemax="9"
+                aria-valuenow="0"
+              >
+                <span id="quest-progress-fill"></span>
+              </div>
+            </div>
+            <div class="quest-counter" aria-label="0 de 9 locais descobertos">
+              <strong id="score-value">0</strong><span>/</span><strong id="target-value">9</strong>
+              <small>locais</small>
+            </div>
+          </section>
+
+          <nav class="hud-actions" aria-label="Controles do jogo">
+            <button
+              id="audio-button"
+              class="round-button"
+              type="button"
+              aria-label="Silenciar áudio"
+              aria-pressed="false"
+              title="Silenciar áudio"
+            >
+              <span class="icon icon-sound" aria-hidden="true"></span>
+            </button>
+            <button
+              id="help-button"
+              class="round-button"
+              type="button"
+              aria-label="Abrir ajuda"
+              aria-haspopup="dialog"
+              aria-controls="help-panel"
+              title="Como jogar"
+            >
+              <span aria-hidden="true">?</span>
+            </button>
+          </nav>
+        </header>
+
+        <div class="location-plaque" aria-live="polite">
+          <span class="location-plaque__marker" aria-hidden="true"></span>
+          <span>
+            <small>Você está em</small>
+            <strong id="location-value">Praça da Vila</strong>
+          </span>
+        </div>
+
+        <aside id="active-agent-badge" class="active-agent-badge" aria-label="Agente ativo" hidden>
+          <span id="active-agent-sigil" class="active-agent-badge__sigil" aria-hidden="true">◆</span>
+          <span class="active-agent-badge__copy">
+            <small>Agente ativo</small>
+            <strong id="active-agent-name">Nenhum agente</strong>
+            <span id="active-agent-role">Escolha alguém na Taverna</span>
+          </span>
+        </aside>
+
+        <div id="status-line" class="sr-only" aria-live="polite">Explore a vila</div>
+
+        <div id="interaction-prompt" class="interaction-prompt" hidden>
+          <span class="keycap" aria-hidden="true">E</span>
+          <span><small>Interagir com</small><strong id="interaction-name">este local</strong></span>
+        </div>
+
+        <p id="game-instructions" class="control-hint">
+          <span class="key-group" aria-hidden="true"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></span>
+          <span>ou setas para andar</span>
+          <span class="hint-divider" aria-hidden="true"></span>
+          <kbd>E</kbd><span>para interagir</span>
+        </p>
+
+        <div id="touch-controls" aria-label="Controles por toque">
+          <div id="touch-stick" role="application" tabindex="0" aria-label="Controle de movimento">
+            <span class="stick-rune" aria-hidden="true">✦</span>
+            <div id="touch-knob" aria-hidden="true"></div>
+          </div>
+          <button id="dash-button" class="interact-button" type="button" aria-label="Interagir">
+            <span class="interact-button__glyph" aria-hidden="true">✦</span>
+            <span>Interagir</span>
+          </button>
+        </div>
+      </div>
+
+      <dialog id="building-panel" class="medieval-dialog" aria-labelledby="building-name">
+        <div class="dialog-frame">
+          <button
+            id="building-close"
+            class="dialog-close"
+            type="button"
+            aria-label="Fechar informações do local"
+          >
+            ×
+          </button>
+          <span id="building-icon" class="building-sigil" aria-hidden="true">⚔</span>
+          <span class="eyebrow">Local descoberto</span>
+          <h2 id="building-name">Guilda dos Aventureiros</h2>
+          <p id="building-purpose">Crie projetos e receba novas missões.</p>
+          <span id="building-status" class="status-seal">Em breve</span>
+          <p class="dialog-footnote">Este local ganhará novas funções conforme a vila evoluir.</p>
+        </div>
+      </dialog>
+
+      <dialog id="help-panel" class="medieval-dialog help-dialog" aria-labelledby="help-title">
+        <div class="dialog-frame">
+          <button id="help-close" class="dialog-close" type="button" aria-label="Fechar ajuda">×</button>
+          <span class="building-sigil" aria-hidden="true">?</span>
+          <span class="eyebrow">Manual do viajante</span>
+          <h2 id="help-title">Como explorar</h2>
+          <ul class="help-list">
+            <li><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> ou setas <span>Andar pela vila</span></li>
+            <li><kbd>E</kbd> <span>Interagir com um local próximo</span></li>
+            <li><span class="help-touch-icon" aria-hidden="true">✦</span> <span>No celular, use o controle e o botão</span></li>
+          </ul>
+          <p class="dialog-footnote">Aproxime-se das construções para descobrir o que cada agente faz.</p>
+        </div>
+      </dialog>
+
+      <dialog
+        id="tavern-panel"
+        class="medieval-dialog tavern-dialog"
+        aria-labelledby="tavern-title"
+        aria-describedby="tavern-lede"
+      >
+        <div class="tavern-shell">
+          <header class="tavern-header">
+            <span class="tavern-header__crest" aria-hidden="true"><i>♜</i></span>
+            <div class="tavern-header__copy">
+              <span class="eyebrow">Salão dos companheiros</span>
+              <h2 id="tavern-title">Taverna do Grifo Dourado</h2>
+              <p id="tavern-lede">Conheça especialistas, converse sobre sua missão e escolha quem viajará com você.</p>
+            </div>
+            <span class="tavern-header__sign" aria-hidden="true">Aberta</span>
+            <button
+              id="tavern-close"
+              class="dialog-close"
+              type="button"
+              aria-label="Fechar Taverna"
+            >
+              ×
+            </button>
+          </header>
+
+          <section class="tavern-roster-pane" aria-labelledby="tavern-roster-title">
+            <div class="tavern-section-heading">
+              <span aria-hidden="true">◆</span>
+              <div>
+                <span class="eyebrow">Mesa de aventureiros</span>
+                <h3 id="tavern-roster-title">Agentes disponíveis</h3>
+              </div>
+            </div>
+            <div id="tavern-roster" class="tavern-roster" role="list" aria-label="Agentes disponíveis"></div>
+          </section>
+
+          <section class="tavern-agent-pane" aria-labelledby="tavern-agent-name">
+            <div class="tavern-agent-heading">
+              <span id="tavern-agent-sigil" class="tavern-agent-sigil" aria-hidden="true">◆</span>
+              <div class="tavern-agent-heading__copy">
+                <span class="eyebrow">Ficha do aventureiro</span>
+                <h3 id="tavern-agent-name">Escolha um agente</h3>
+                <p id="tavern-agent-class" class="tavern-agent-class">Classe desconhecida</p>
+              </div>
+              <span id="tavern-agent-status" class="tavern-agent-status">Disponível</span>
+            </div>
+
+            <div class="tavern-rule" aria-hidden="true"><span>✦</span></div>
+
+            <div class="tavern-agent-scroll">
+              <div class="tavern-role-card">
+                <span class="tavern-field-label">Ofício na expedição</span>
+                <strong id="tavern-agent-role">—</strong>
+              </div>
+              <p id="tavern-agent-description" class="tavern-agent-description">
+                Selecione alguém da mesa para consultar sua ficha.
+              </p>
+              <div class="tavern-skills-block">
+                <span class="tavern-field-label">Especialidades</span>
+                <ul id="tavern-agent-skills" class="tavern-skills" aria-label="Especialidades do agente"></ul>
+              </div>
+            </div>
+
+            <button id="tavern-select-agent" class="tavern-primary-action" type="button">
+              <span aria-hidden="true">⚔</span>
+              <span>Viajar com este agente</span>
+            </button>
+          </section>
+
+          <section class="tavern-chat-pane" aria-labelledby="tavern-chat-title">
+            <div class="tavern-section-heading tavern-chat-heading">
+              <span aria-hidden="true">✦</span>
+              <div>
+                <span class="eyebrow">Conversa junto à lareira</span>
+                <h3 id="tavern-chat-title">Fale com o agente</h3>
+              </div>
+              <span class="tavern-chat-state"><i aria-hidden="true"></i> Presente</span>
+            </div>
+
+            <div
+              id="tavern-chat-log"
+              class="tavern-chat-log"
+              role="log"
+              aria-live="polite"
+              aria-relevant="additions"
+              aria-label="Histórico da conversa"
+              tabindex="0"
+            ></div>
+
+            <div id="tavern-quick-prompts" class="tavern-quick-prompts" aria-label="Perguntas sugeridas">
+              <button class="tavern-quick-prompt" type="button" data-prompt="Como você pode ajudar na minha missão?">
+                Como pode ajudar?
+              </button>
+              <button class="tavern-quick-prompt" type="button" data-prompt="Qual seria o primeiro passo deste projeto?">
+                Primeiro passo?
+              </button>
+              <button class="tavern-quick-prompt" type="button" data-prompt="Que riscos devemos observar?">
+                Quais são os riscos?
+              </button>
+            </div>
+
+            <form id="tavern-chat-form" class="tavern-chat-form">
+              <label class="sr-only" for="tavern-chat-input">Mensagem para o agente</label>
+              <input
+                id="tavern-chat-input"
+                name="message"
+                type="text"
+                maxlength="240"
+                autocomplete="off"
+                placeholder="Conte sobre sua missão..."
+                required
+              />
+              <button id="tavern-chat-send" type="submit" aria-label="Enviar mensagem">
+                <span aria-hidden="true">➤</span>
+                <span>Enviar</span>
+              </button>
+            </form>
+          </section>
+        </div>
+      </dialog>
+
+      <div id="screen-announcer" class="sr-only" aria-live="assertive" aria-atomic="true"></div>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

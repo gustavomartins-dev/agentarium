@@ -12,11 +12,15 @@ Thumbs.db
 .env.*
 !.env.example
 
-# Dependências e builds comuns
+# Dependências, builds e testes
 node_modules/
 dist/
 build/
 coverage/
+test-results/
+artifacts/
+playwright-report/
+*.log
 
 # Android
 .gradle/
@@ -30,4 +34,3 @@ local.properties
 .flutter-plugins-dependencies
 .packages
 pubspec.lock
-

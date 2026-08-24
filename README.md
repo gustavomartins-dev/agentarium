@@ -2,6 +2,8 @@
 
 > Um laboratório visual em pixel art para criar, observar e aprender a trabalhar com agentes de inteligência artificial.
 
+> Projeto desenvolvido com auxílio integral de inteligência artificial, sob direção, decisões e validação de Gustavo Martins.
+
 ## Estado atual — vila jogável + Taverna funcional
 
 A primeira fatia jogável está implementada em Three.js: uma vila medieval 3D pixelizada, navegável por teclado e toque, com nove locais interativos. A Taverna já é o primeiro prédio funcional do Agentarium.
@@ -46,7 +48,7 @@ npx playwright test tests/visual-regression.spec.ts
 
 O conceito do mundo está em [`docs/primeira-fatia-jogavel.md`](docs/primeira-fatia-jogavel.md), e o contrato funcional da Taverna em [`docs/fatia-taverna.md`](docs/fatia-taverna.md). As evidências estão nos relatórios da [`vila`](docs/relatorio-primeira-fatia.md) e da [`Taverna`](docs/relatorio-taverna.md).
 
-## Contexto para o Codex
+## Contexto de desenvolvimento
 
 Quero que você atue como arquiteto, mentor técnico e, somente depois da minha aprovação, desenvolvedor deste projeto.
 
@@ -192,7 +194,7 @@ Essas ideias não fazem parte automaticamente do MVP. Avalie-as antes de adicion
 - Trabalhe somente no repositório `agentarium` e na pasta autorizada do Obsidian.
 - Não faça commit ou push sem meu pedido explícito.
 
-## Primeira tarefa do Codex (concluída — registro histórico)
+## Primeira tarefa de desenvolvimento (concluída — registro histórico)
 
 Esta restrição valeu para a Etapa 0 e foi cumprida. Depois da proposta e das conversas de direção, o usuário autorizou explicitamente a implementação do frontend da vila em 19 de agosto de 2026. Nenhum commit ou push faz parte dessa autorização.
 

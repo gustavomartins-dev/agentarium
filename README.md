@@ -2,7 +2,10 @@
 
 > Um laboratório visual em pixel art para criar, observar e aprender a trabalhar com agentes de inteligência artificial.
 
-> Projeto desenvolvido com auxílio integral de inteligência artificial, sob direção, decisões e validação de Gustavo Martins.
+> [!IMPORTANT]
+> **Este projeto foi desenvolvido com assistência substancial de inteligência artificial.**
+> A ideia, a direção, as decisões finais e a validação são de Gustavo Martins;
+> planejamento, implementação, testes e documentação contaram com o apoio de ferramentas de IA.
 
 ## Estado atual — vila jogável + Taverna funcional
 

@@ -1,403 +1,312 @@
-# Agentarium
+<div align="center">
+  <img
+    src="./docs/assets/agentarium-crest.svg"
+    width="230"
+    alt="Brasão do Agentarium com torre, runa dourada e árvores sobre um escudo medieval"
+  />
 
-> Um laboratório visual em pixel art para criar, observar e aprender a trabalhar com agentes de inteligência artificial.
+  <h1>⚔️ Agentarium 🌿</h1>
 
-## Estado atual — vila jogável + Taverna funcional
+  <p><strong>Uma vila medieval viva para criar, observar e aprender com agentes de inteligência artificial.</strong></p>
+  <p>Projetos tornam-se expedições, tarefas viram missões e cada agente encontra seu lugar no reino.</p>
 
-A primeira fatia jogável está implementada em Three.js: uma vila medieval 3D pixelizada, navegável por teclado e toque, com nove locais interativos. A Taverna já é o primeiro prédio funcional do Agentarium.
+  <p>
+    <img src="https://img.shields.io/badge/Three.js-0.184-17130F?style=for-the-badge&logo=threedotjs&logoColor=E5AD45" alt="Three.js 0.184" />
+    <img src="https://img.shields.io/badge/TypeScript-6.0-2E4A2C?style=for-the-badge&logo=typescript&logoColor=E9CF91" alt="TypeScript 6" />
+    <img src="https://img.shields.io/badge/Vite-8.2-77352F?style=for-the-badge&logo=vite&logoColor=FFE39A" alt="Vite 8.2" />
+    <img src="https://img.shields.io/badge/Playwright-1.60-4D6B3C?style=for-the-badge&logo=playwright&logoColor=white" alt="Playwright 1.60" />
+  </p>
+  <p>
+    <img src="https://img.shields.io/badge/status-alpha_jogavel-789249?style=flat-square" alt="Status alpha jogável" />
+    <img src="https://img.shields.io/badge/IA-simulacao_local-E5AD45?style=flat-square&logo=openai&logoColor=17130F" alt="IA em simulação local" />
+    <img src="https://img.shields.io/badge/licenca-MIT-77352F?style=flat-square" alt="Licença MIT" />
+  </p>
+
+  <p>༺ 🌲 ✦ 🏰 ✦ 🌲 ༻</p>
+</div>
+
+> [!IMPORTANT]
+> **Este projeto foi desenvolvido com assistência substancial de IA.** A visão,
+> as escolhas de produto e a direção pertencem a Gustavo Martins; arquitetura,
+> implementação, testes e documentação contaram principalmente com o
+> **OpenAI Codex**, sempre sob supervisão humana.
+
+## 🌄 O reino já pode ser explorado
+
+<div align="center">
+  <img
+    src="./tests/visual-regression.spec.ts-snapshots/complete-desktop-chrome-desktop-chrome-linux.png"
+    width="1000"
+    alt="Praça central da vila medieval pixelizada do Agentarium, com mercado, fonte, caminhos e edifícios"
+  />
+  <p><em>A praça central depois de descobrir os nove locais da vila.</em></p>
+</div>
+
+## 📜 Sobre o Agentarium
+
+O Agentarium nasceu de uma pergunta: **e se sistemas de agentes deixassem de
+parecer caixas-pretas e se transformassem em um mundo que podemos percorrer e
+compreender?**
+
+Nesta vila, cada construção representa uma responsabilidade real de um futuro
+sistema de agentes. A Taverna reúne companheiros; a Guilda recebe projetos e
+missões; a Ferraria executa tarefas; a Biblioteca preserva memória; e o Hospital
+ajuda a investigar falhas.
+
+O cenário não existe apenas para ser bonito. Ele é uma projeção visual para
+responder perguntas importantes:
+
+- quem está trabalhando e em qual missão;
+- quais decisões e ferramentas foram usadas;
+- onde aconteceu uma falha e como recuperá-la;
+- quando uma ação exige aprovação humana;
+- o que foi aprendido durante a jornada.
+
+## ✨ O que já ganhou vida
+
+| 🌲 Mundo | 🧭 Exploração | 🍺 Taverna | 🛡️ Engenharia |
+| --- | --- | --- | --- |
+| vila 3D em pixel/voxel art | movimento por teclado e toque | três agentes com papéis distintos | TypeScript em modo estrito |
+| nove marcos e onze casas | câmera isométrica e corrida | fichas, especialidades e seleção | estado separado da apresentação |
+| praça, fonte, jardins e estradas | proximidade e interação contextual | conversa determinística local | diagnósticos e hooks reproduzíveis |
+| natureza, props e castelo distante | 36 colisores autorais | agente ativo permanece no HUD | testes funcionais e visuais |
+
+### Pequenos encantamentos que fazem diferença
+
+- 🔥 fogueiras, água, placas e ambiente possuem movimento procedural;
+- 🎨 materiais e texturas são gerados localmente e compartilham a mesma paleta;
+- 🎧 passos, descoberta, interface e vento usam WebAudio procedural;
+- 📱 HUD, diálogos e controles respeitam telas pequenas e áreas seguras;
+- ♿ teclado, toque, rótulos acessíveis e redução de movimento são considerados;
+- 🌙 nenhum asset pago, telemetria ou serviço de nuvem é necessário para jogar.
+
+## 🗺️ Atlas da vila
+
+| Local | Papel no reino | Responsabilidade no produto | Estado |
+| --- | --- | --- | --- |
+| ⚔️ **Guilda** | salão das expedições | criar projetos e receber missões | planejado |
+| 🍺 **Taverna** | encontro de companheiros | conhecer, conversar e selecionar agentes | **funcional** |
+| 🔨 **Ferraria** | oficina dos executores | tarefas de código e uso de ferramentas | planejado |
+| 📚 **Biblioteca** | arquivo dos sábios | memória, documentação e conceitos | planejado |
+| ⛪ **Igreja** | espaço de contemplação | revisão de decisões e histórico | planejado |
+| 🔮 **Torre do Mago** | laboratório arcano | modelos, prompts e experimentos | planejado |
+| 🧺 **Mercado** | feira de artefatos | integrações e ferramentas futuras | planejado |
+| 🏥 **Hospital** | casa de recuperação | erros, diagnóstico e retomadas | planejado |
+| 🏡 **Sua Casa** | refúgio do viajante | configurações, progresso e diário | planejado |
+
+## 🍻 Taverna do Grifo Dourado
+
+<div align="center">
+  <img
+    src="./tests/visual-regression.spec.ts-snapshots/tavern-open-desktop-chrome-desktop-chrome-linux.png"
+    width="1000"
+    alt="Interface medieval da Taverna do Grifo Dourado mostrando o elenco, a ficha de Aldren e o painel de conversa"
+  />
+  <p><em>O primeiro edifício realmente funcional do Agentarium.</em></p>
+</div>
+
+| Companheiro | Classe | Ofício | Especialidades |
+| --- | --- | --- | --- |
+| ✦ **Aldren** | Corvo Oráculo | Estrategista | planejamento, pesquisa e prompts |
+| ⚒ **Brunna** | Texugo Ferreiro | Executor | código, testes e ferramentas |
+| ✥ **Selene** | Coruja Clériga | Revisora | revisão, memória e segurança |
+
+As conversas atuais são **simulações locais e determinísticas**. Elas permitem
+validar produto, estado e experiência sem chave, custo ou dependência de rede.
+O contrato `AgentConversationProvider` foi criado para que um provedor real possa
+ser conectado futuramente sem reescrever a Taverna.
+
+## 🪄 Como a magia circula
+
+```mermaid
+flowchart LR
+    PLAYER["🧙 Viajante"]
+    INPUT["🎮 Input<br/>teclado ou toque"]
+    GAME["🏰 Game<br/>orquestração"]
+    WORLD["🌲 VillageWorld<br/>mundo e marcos"]
+    COLLISION["🪨 CollisionSystem<br/>limites e proximidade"]
+    PANEL["🍺 TavernPanel<br/>apresentação"]
+    STATE["📜 TavernSystem<br/>fonte de verdade"]
+    PROVIDER["✦ SimulatedProvider<br/>respostas locais"]
+    HUD["🛡️ HUD<br/>progresso e agente ativo"]
+
+    PLAYER --> INPUT --> GAME
+    GAME --> WORLD
+    GAME --> COLLISION
+    GAME --> HUD
+    GAME --> PANEL
+    PANEL -->|intenções| STATE
+    STATE -->|contexto| PROVIDER
+    PROVIDER -->|resposta| STATE
+    STATE -->|snapshot| PANEL
+    STATE -->|seleção| GAME
+
+    classDef nature fill:#2E4A2C,color:#FFF4D6,stroke:#789249,stroke-width:2px;
+    classDef parchment fill:#E9CF91,color:#241710,stroke:#E5AD45,stroke-width:2px;
+    classDef burgundy fill:#77352F,color:#FFF4D6,stroke:#E5AD45,stroke-width:2px;
+    class PLAYER,INPUT,WORLD,COLLISION nature;
+    class GAME,STATE parchment;
+    class PANEL,PROVIDER,HUD burgundy;
+```
+
+O domínio não conhece HTML, Three.js ou serviços de IA. A interface apenas
+renderiza snapshots e envia intenções. O `Game` conecta essas partes sem criar
+uma segunda fonte de verdade.
+
+## 🧰 Grimório técnico
+
+| Camada | Tecnologia ou responsabilidade |
+| --- | --- |
+| linguagem | TypeScript 6 em modo estrito |
+| mundo 3D | Three.js 0.184 |
+| desenvolvimento e build | Vite 8.2 |
+| interface | HTML semântico e CSS responsivo |
+| render | pixel pass adaptativo, tone mapping, sombras e névoa |
+| domínio | tipos imutáveis, estado observável e providers substituíveis |
+| áudio | WebAudio procedural e local |
+| qualidade | Playwright, PNGJS, diagnósticos e regressão visual |
+
+### Estrutura do reino
+
+```text
+src/
+├── assets/       materiais, texturas e fábricas procedurais
+├── core/         loop, renderer e entrada do jogador
+├── domain/       contratos e perfis dos agentes
+├── entities/     personagem e movimento
+├── game/         orquestração da experiência
+├── systems/      HUD, câmera, colisão, áudio e Taverna
+└── world/        mapa, marcos, interações e diagnóstico
+
+tests/            jornadas reais e baselines visuais
+docs/             contratos de design e relatórios de evidência
+```
+
+## 🚪 Entrando na vila
+
+### Pré-requisitos
+
+- Node.js `20.19+` ou `22.12+`;
+- npm;
+- navegador moderno com WebGL.
+
+### Jornada local
 
 ```bash
+git clone https://github.com/gustavomartins-dev/agentarium.git
+cd agentarium
+git switch local
 npm install
 npm run dev
 ```
 
-Abra `http://127.0.0.1:5173` (ou a porta indicada pelo Vite).
+Abra `http://127.0.0.1:5173` ou a porta indicada pelo Vite.
 
 ### Controles
 
-- `WASD` ou setas: caminhar.
-- `Shift` ou `Espaço`: correr.
-- `E` ou `Enter`: interagir.
-- Celular: joystick virtual e botão **Interagir**.
+| Ação | Teclado | Celular |
+| --- | --- | --- |
+| caminhar | `WASD` ou setas | joystick virtual |
+| correr | `Shift` ou `Espaço` | — |
+| interagir | `E` ou `Enter` | botão **Interagir** |
+| fechar painel | `Esc` ou botão `×` | botão `×` |
 
-### O que existe nesta fatia
-
-- Guilda, Taverna, Ferraria, Biblioteca, Igreja, Torre do Mago, Mercado, Hospital e Sua Casa.
-- Onze casas auxiliares, praça, fonte, estradas, jardins, árvores, cercas, postes, carroça e um castelo distante.
-- Personagem voxel provisório, câmera isométrica, corrida, animação e colisão com 36 proxies autorais.
-- Missão de descoberta `0/9`, prompt contextual e painel com a futura função de cada local.
-- Taverna do Grifo Dourado com três agentes provisórios, fichas, seleção persistente na sessão e conversa simulada local.
-- HUD responsiva, controles touch, áudio procedural local e suporte a movimento reduzido.
-- Renderização pixelizada adaptativa: contornos por profundidade/normais no desktop e passe econômico no mobile.
-- Diagnósticos de render, testes reais de movimento/interação e regressão visual reproduzível.
-
-### Primeira função real: Taverna
-
-Interaja com a Taverna para conhecer Aldren, Brunna e Selene. Cada agente tem classe, papel e especialidades próprias; você pode conversar com respostas determinísticas sem rede e escolher quem ficará ativo no HUD. O provedor de conversa é substituível, mas esta versão não usa API, chave, modelo pago ou backend.
-
-### Verificações
+## 🧪 Provas antes das lendas
 
 ```bash
 npm run build
 npm test
 npm run verify:visual
-npx playwright test tests/visual-regression.spec.ts
+npm run inspect:canvas -- --state tavern-open
 ```
 
-O conceito do mundo está em [`docs/primeira-fatia-jogavel.md`](docs/primeira-fatia-jogavel.md), e o contrato funcional da Taverna em [`docs/fatia-taverna.md`](docs/fatia-taverna.md). As evidências estão nos relatórios da [`vila`](docs/relatorio-primeira-fatia.md) e da [`Taverna`](docs/relatorio-taverna.md).
-
-## Contexto para o Codex
-
-Quero que você atue como arquiteto, mentor técnico e, somente depois da minha aprovação, desenvolvedor deste projeto.
-
-O projeto se chama **Agentarium**. Ele é 100% pessoal e não possui nenhuma relação com a empresa China Link, seus sistemas, arquivos, contratos ou informações.
-
-- Repositório local: `/home/gustavo-fonseca-martins/agentarium`
-- GitHub pessoal: `https://github.com/gustavomartins-dev/agentarium`
-- Vault pessoal: `/home/gustavo-fonseca-martins/Documentos/Second-Brain`
-- Documentação oficial: `/home/gustavo-fonseca-martins/Documentos/Second-Brain/02 - Projetos/Agentarium/`
-- Nota principal: `/home/gustavo-fonseca-martins/Documentos/Second-Brain/02 - Projetos/Agentarium/Agentarium.md`
-
-## Visão do produto
-
-Quero criar um ambiente visual e interativo no qual agentes de IA são representados como personagens em um pequeno mundo pixel art.
-
-O usuário cria projetos, transforma objetivos em missões e distribui tarefas para agentes especializados. Enquanto os agentes trabalham, seus estados aparecem visualmente no cenário: pensando, pesquisando, programando, revisando, aguardando aprovação, concluindo uma missão ou encontrando um erro.
-
-O produto não deve ser apenas uma animação bonita. A interface visual precisa representar estados reais do sistema e ajudar o usuário a entender:
-
-- Qual agente está fazendo o quê.
-- Por que determinada ferramenta foi usada.
-- Quais decisões foram tomadas.
-- Quanto cada tarefa custou em tempo e tokens.
-- Quando uma ação precisa de aprovação humana.
-- O que deu errado e como investigar.
-- O que o usuário aprendeu durante o projeto.
-
-## Objetivo de aprendizagem
-
-Este projeto também é meu laboratório de formação. Não quero apenas receber código pronto. Quero aprender a pensar como alguém que projeta e constrói sistemas complexos.
-
-Durante o desenvolvimento, ensine de forma prática:
-
-- Decomposição de problemas.
-- Modelagem de domínio.
-- Arquitetura de software.
-- Frontend e interfaces interativas.
-- Backend e APIs.
-- Bancos de dados e persistência.
-- Eventos em tempo real.
-- Integração com modelos de IA.
-- Prompts, ferramentas e agentes.
-- Filas, jobs e máquinas de estado.
-- Testes, observabilidade e depuração.
-- Segurança, permissões e proteção de segredos.
-- Git, commits, branches e evolução de produto.
-- Avaliação de custos e trade-offs técnicos.
-
-Antes de implementar uma parte importante, explique:
-
-1. Qual problema estamos resolvendo.
-2. Quais opções existem.
-3. Qual opção você recomenda e por quê.
-4. O que eu devo observar no código.
-5. Como podemos testar se a solução realmente funciona.
-
-Faça perguntas que me ajudem a raciocinar. Não esconda toda a complexidade, mas também não introduza complexidade sem necessidade.
-
-## Conceito inicial
-
-### Mundo visual
-
-- Escritório ou laboratório em pixel art.
-- Agentes como personagens com papéis diferentes.
-- Salas ou estações para planejamento, pesquisa, código, revisão e memória.
-- Animações ligadas aos estados reais das tarefas.
-- Linha do tempo mostrando eventos e decisões.
-- Possibilidade futura de personalizar personagens e ambientes.
-
-### Sistema de agentes
-
-- Criar agentes com nome, função, instruções e ferramentas permitidas.
-- Delegar missões e acompanhar subtarefas.
-- Exigir aprovação para ações sensíveis.
-- Exibir raciocínio operacional resumido, decisões, entradas e resultados sem fingir transparência que o modelo não oferece.
-- Registrar uso de ferramentas, erros, tentativas e resultados.
-- Permitir começar com agentes simulados antes de conectar APIs reais.
-
-### Gamificação
-
-- Objetivos transformados em missões.
-- Tarefas transformadas em quests menores.
-- Experiência por aprendizado e conclusão, não por consumo compulsivo.
-- Níveis de agentes associados a capacidades desbloqueadas.
-- Conquistas por boas práticas: escrever testes, documentar decisões, corrigir bugs e revisar segurança.
-- Árvore de habilidades representando o que aprendi.
-- Histórico de projetos como um diário de campanha.
-
-### Aprendizado
-
-- Explicações contextuais sobre arquitetura e código.
-- Perguntas rápidas para confirmar entendimento.
-- Registro de conceitos aprendidos no Obsidian.
-- Revisões periódicas.
-- Desafios em que eu implemento uma pequena parte com orientação.
-- Painel mostrando tecnologias e conceitos praticados.
-
-## Primeira versão possível
-
-A primeira versão deve ser pequena o suficiente para terminar, mas completa o suficiente para provar a ideia:
-
-1. Uma aplicação web local.
-2. Um cenário pixel art simples.
-3. Três agentes com papéis predefinidos.
-4. Criação de projeto e missão.
-5. Quadro de tarefas com estados bem definidos.
-6. Personagens reagindo aos estados das tarefas.
-7. Feed de eventos em tempo real.
-8. Agentes inicialmente simulados para validar a experiência sem custos.
-9. Integração opcional posterior com uma API de IA escolhida pelo usuário.
-10. Persistência local dos projetos e do progresso.
-11. Sistema básico de experiência e conquistas.
-12. Tela que explica o que está acontecendo e o conceito técnico envolvido.
-
-## Ideias futuras
-
-- Editor visual de agentes e ferramentas.
-- Múltiplos cenários e personagens.
-- Agentes realmente executando tarefas em ambientes isolados.
-- Integração com GitHub e acompanhamento de pull requests.
-- Memória pesquisável por projeto.
-- Multiplayer ou compartilhamento de mundos.
-- Marketplace de agentes, missões e cenários.
-- Modelo local por Ollama ou tecnologia equivalente.
-- Aplicativo instalável como PWA.
-- Plugins e API pública.
-- Replay visual da execução de uma missão.
-
-Essas ideias não fazem parte automaticamente do MVP. Avalie-as antes de adicioná-las.
-
-## Restrições
-
-- Priorize ferramentas gratuitas e de código aberto.
-- O sistema deve funcionar localmente antes de depender de nuvem.
-- Não crie cobranças, assinaturas ou serviços pagos sem minha aprovação.
-- Não adicione telemetria, publicidade ou coleta oculta de dados.
-- Nunca coloque chaves de API no frontend, no Git ou no Obsidian.
-- APIs pagas devem ser opcionais e ter limite de custo configurável.
-- Prefira uma arquitetura que permita usar simulação, modelos locais ou diferentes provedores.
-- Não execute código gerado por agentes sem isolamento e aprovação explícita.
-- Não permita que agentes alterem arquivos fora do diretório autorizado.
-- Não acesse, analise ou altere a pasta `China Link`.
-- Trabalhe somente no repositório `agentarium` e na pasta autorizada do Obsidian.
-- Não faça commit ou push sem meu pedido explícito.
-
-## Primeira tarefa do Codex (concluída — registro histórico)
-
-Esta restrição valeu para a Etapa 0 e foi cumprida. Depois da proposta e das conversas de direção, o usuário autorizou explicitamente a implementação do frontend da vila em 19 de agosto de 2026. Nenhum commit ou push faz parte dessa autorização.
-
-Primeiro, entregue uma proposta contendo:
-
-1. Definição clara do problema e do público inicial.
-2. Jornada principal do usuário.
-3. Escopo recomendado para o MVP.
-4. Funcionalidades que devem ficar para depois.
-5. Comparação das tecnologias adequadas.
-6. Recomendação de stack com justificativa e alternativas.
-7. Arquitetura inicial sem complexidade prematura.
-8. Modelo de dados inicial.
-9. Máquina de estados para agentes, missões e tarefas.
-10. Estratégia para o mundo pixel art e suas animações.
-11. Estratégia para eventos em tempo real.
-12. Forma segura de integrar APIs de IA futuramente.
-13. Estratégia de simulação para desenvolver sem gastar dinheiro.
-14. Riscos técnicos, de segurança, custo e escopo.
-15. Plano de implementação dividido em marcos pequenos.
-16. Estratégia de testes.
-17. Plano de aprendizado associado a cada marco.
-18. Decisões que precisam da minha aprovação antes da implementação.
-
-Apresente diagramas simples quando ajudarem. Diferencie fatos, recomendações e hipóteses. Ao recomendar uma ferramenta cuja situação possa ter mudado, consulte sua documentação oficial.
-
-## Caminho de desenvolvimento
-
-Não tente construir o produto inteiro de uma vez. Trabalhe em uma etapa por vez e espere minha aprovação antes de avançar.
-
-### Etapa 0 — Descoberta e decisões
-
-**Objetivo:** transformar a visão em um plano realista antes de escolher ferramentas.
-
-- Definir problema, público e jornada principal.
-- Separar MVP, versões futuras e ideias experimentais.
-- Definir o que torna o Agentarium útil além do visual.
-- Comparar stacks e registrar os trade-offs.
-- Criar mapa de riscos e perguntas em aberto.
-- Produzir arquitetura conceitual e modelo de domínio inicial.
-
-**Aprendizado:** produto, escopo, requisitos, trade-offs e modelagem.
-
-**Saída:** proposta para minha aprovação, registrada no Obsidian. Nenhum código de aplicação.
-
-### Etapa 1 — Fundação do repositório
-
-**Objetivo:** criar uma base pequena, compreensível e confiável.
-
-- Inicializar a stack aprovada.
-- Configurar formatação, lint e testes.
-- Definir estrutura inicial de pastas.
-- Criar documentação de execução local.
-- Construir somente uma página vazia identificando o projeto.
-
-**Aprendizado:** estrutura de projeto, ferramentas, dependências e qualidade automática.
-
-**Critério de conclusão:** aplicação executa localmente e verificações automáticas passam.
-
-### Etapa 2 — Protótipo do mundo visual
-
-**Objetivo:** validar a experiência visual sem backend e sem IA.
-
-- Criar um cenário pixel art mínimo.
-- Mostrar personagens e estações.
-- Implementar estados visuais falsos controlados pela interface.
-- Validar legibilidade, navegação e identidade visual.
-
-**Aprendizado:** componentes, estado de interface, renderização, animação e design responsivo.
-
-**Critério de conclusão:** é possível alternar estados e entender visualmente o que cada agente está fazendo.
-
-### Etapa 3 — Domínio e persistência local
-
-**Objetivo:** transformar o protótipo em um sistema real, ainda sem IA.
-
-- Modelar projetos, missões, tarefas, agentes e eventos.
-- Implementar as máquinas de estado.
-- Salvar e restaurar dados localmente.
-- Criar missões e mover tarefas pelo fluxo.
-- Registrar uma linha do tempo auditável.
-
-**Aprendizado:** modelagem, regras de negócio, persistência, migrações e testes.
-
-**Critério de conclusão:** recarregar a aplicação não perde o projeto nem seu histórico.
-
-### Etapa 4 — Gamificação com propósito
-
-**Objetivo:** recompensar aprendizado e boas práticas sem criar mecânicas vazias.
-
-- Definir experiência, níveis e conquistas.
-- Ligar recompensas a eventos reais.
-- Criar árvore inicial de habilidades.
-- Mostrar por que cada recompensa foi conquistada.
-
-**Aprendizado:** regras derivadas, progressão, ética de produto e feedback visual.
-
-**Critério de conclusão:** toda recompensa é explicável, testável e ligada a uma ação útil.
-
-### Etapa 5 — Agentes simulados
-
-**Objetivo:** validar a orquestração sem pagar API nem depender de um modelo.
-
-- Criar um motor determinístico de simulação.
-- Simular planejamento, execução, revisão, erro e aprovação.
-- Alimentar o feed de eventos e o mundo visual.
-- Medir tempo e custos fictícios.
-
-**Aprendizado:** eventos, jobs, assincronismo, máquinas de estado e testes determinísticos.
-
-**Critério de conclusão:** uma missão simulada percorre o fluxo completo e pode ser reproduzida.
-
-### Etapa 6 — Primeira integração de IA
-
-**Objetivo:** trocar apenas uma parte da simulação por uma integração real e controlada.
-
-- Definir uma interface independente de provedor.
-- Começar por uma ação de baixo risco, como decompor uma missão.
-- Proteger a chave no backend ou processo local apropriado.
-- Adicionar limites de custo, timeout, cancelamento e tratamento de erros.
-- Manter o modo simulado disponível.
-
-**Aprendizado:** APIs de modelos, prompts, saída estruturada, segurança, custo e avaliação.
-
-**Critério de conclusão:** a mesma funcionalidade roda em modo simulado e real, sem expor segredos.
-
-### Etapa 7 — Ferramentas e aprovações
-
-**Objetivo:** permitir ações úteis com limites claros.
-
-- Criar sistema de ferramentas permitidas.
-- Exigir confirmação humana para ações sensíveis.
-- Limitar diretórios e capacidades.
-- Registrar entrada, saída e resultado de cada ferramenta.
-- Pesquisar isolamento antes de executar qualquer código gerado.
-
-**Aprendizado:** segurança, permissões, sandbox, auditoria e falhas seguras.
-
-**Critério de conclusão:** nenhuma ação sensível ocorre silenciosamente ou fora do escopo autorizado.
-
-### Etapa 8 — Consolidação do MVP
-
-**Objetivo:** integrar e polir somente o que provou valor.
-
-- Melhorar experiência, acessibilidade e desempenho.
-- Completar testes dos fluxos essenciais.
-- Revisar segurança e documentação.
-- Preparar instalação local e demonstração.
-- Comparar o resultado com os critérios definidos na Etapa 0.
-
-**Aprendizado:** integração, qualidade, entrega e avaliação de produto.
-
-**Critério de conclusão:** o MVP resolve a jornada principal de ponta a ponta e pode ser explicado por mim.
-
-### Regra de avanço
-
-Ao iniciar cada etapa:
-
-1. Releia o estado atual no Obsidian.
-2. Explique o objetivo e os conceitos envolvidos.
-3. Proponha uma entrega pequena e verificável.
-4. Apresente decisões que precisam da minha aprovação.
-5. Só implemente depois que eu aprovar.
-
-Ao encerrar cada etapa:
-
-1. Execute os testes definidos.
-2. Confira as alterações.
-3. Explique o que foi construído e como funciona.
-4. Faça perguntas curtas para verificar meu entendimento.
-5. Atualize o Obsidian.
-6. Espere minha autorização para commit, push ou próxima etapa.
-
-## Obsidian obrigatório
-
-Use o Second Brain como memória oficial e contínua do projeto desde a primeira análise. Atualizar o Obsidian faz parte da definição de pronto; uma tarefa relevante não está concluída enquanto sua documentação não estiver atualizada.
-
-A nota principal deverá conter:
-
-- Visão e objetivo.
-- Estado atual.
-- Arquitetura.
-- Stack e justificativas.
-- Decisões e seus trade-offs.
-- Funcionalidades implementadas.
-- Conceitos aprendidos.
-- Perguntas em aberto.
-- Pendências e problemas conhecidos.
-- Próxima ação.
-- Links importantes.
-- Histórico resumido das atualizações.
-
-Para cada alteração futura:
-
-1. Explique antes o que será feito e o que vou aprender.
-2. Implemente somente depois de autorizado.
-3. Execute testes proporcionais ao risco.
-4. Confira o diff.
-5. Atualize a documentação do projeto no Obsidian.
-6. Registre data, resumo, arquivos afetados, decisões, aprendizado, testes, resultado e próxima ação.
-7. Informe claramente o que mudou.
-8. Espere autorização explícita para commit e push.
-
-Também atualize o Obsidian quando houver apenas planejamento, pesquisa ou decisão, mesmo que nenhum código tenha mudado. Não crie registros artificiais para ações sem relevância; consolide pequenas mudanças relacionadas em uma entrada útil.
-
-Antes de trabalhar, leia a nota principal e apenas as notas do Agentarium necessárias para recuperar o contexto. Ao concluir, garanta que outra sessão consiga continuar dali sem depender da conversa anterior.
-
-Comece pela **Etapa 0 — Descoberta e decisões**. Faça a análise, registre-a no Obsidian e aguarde minha aprovação. Não implemente o produto antes disso.
+Último checkpoint completo registrado:
+
+- ✅ 13 testes aprovados e 1 tour mobile compartilhado ignorado intencionalmente;
+- ✅ 6 baselines de regressão visual em desktop e mobile;
+- ✅ nove entradas alcançáveis e 36 proxies de colisão auditados;
+- ✅ Taverna dentro do orçamento: 155 draw calls no desktop e 146 no mobile;
+- ✅ zero erros de console ou página nas inspeções finais;
+- ✅ zero vulnerabilidades conhecidas na auditoria npm daquele checkpoint.
+
+## 🌉 Caminho entre os reinos
+
+```text
+local  ──►  hml  ──►  main
+forja       prova      versão estável
+```
+
+- `local`: desenvolvimento cotidiano;
+- `hml`: homologação e playtests;
+- `main`: versão estável apresentada no GitHub.
+
+Mudanças devem subir de reino somente depois de build, testes e inspeção
+proporcionais ao risco.
+
+## 🧭 Próximas expedições
+
+- [ ] transformar a Guilda em criação de projeto e missão simulada;
+- [ ] levar tarefas de código e execução para a Ferraria;
+- [ ] registrar memória e conceitos aprendidos na Biblioteca;
+- [ ] representar planejamento, execução, revisão, erro e aprovação no mundo;
+- [ ] persistir projetos e histórico localmente;
+- [ ] adicionar progressão ligada a boas práticas e aprendizado real;
+- [ ] conectar uma primeira IA opcional, limitada e protegida por backend;
+- [ ] permitir ferramentas somente com escopo, isolamento e aprovação humana.
+
+## 🕯️ Sem encantamento falso
+
+O Agentarium ainda é uma **alpha jogável e local-first**:
+
+- a Taverna conversa por regras determinísticas, não por um modelo de IA real;
+- os agentes ainda não executam código, arquivos ou ferramentas;
+- não existem conta, backend, banco, nuvem ou sincronização;
+- seleção e conversa duram apenas durante a sessão atual;
+- personagens e sigilos são provisórios;
+- os outros oito edifícios apresentam sua função, mas ainda não a executam.
+
+Esses limites são intencionais. Primeiro provamos a experiência e os contratos;
+depois adicionamos poder com segurança e evidência.
+
+## 🛡️ Regras do laboratório
+
+- o projeto é pessoal e não possui relação com sistemas ou dados profissionais;
+- ferramentas gratuitas, abertas e locais têm prioridade;
+- nenhuma API paga, telemetria ou coleta oculta sem aprovação explícita;
+- chaves nunca entram no frontend, Git, logs ou documentação;
+- código gerado por agentes não será executado sem isolamento e confirmação;
+- commits, pushes e mudanças de escopo precisam de autorização do proprietário.
+
+## 📚 Crônicas e mapas
+
+- [Contrato da primeira fatia jogável](./docs/primeira-fatia-jogavel.md)
+- [Relatório de evidências da vila](./docs/relatorio-primeira-fatia.md)
+- [Contrato funcional da Taverna](./docs/fatia-taverna.md)
+- [Relatório de evidências da Taverna](./docs/relatorio-taverna.md)
+
+As decisões completas de produto e aprendizado também são mantidas no Obsidian
+pessoal do projeto.
+
+## 🤖 Transparência sobre IA
+
+O Agentarium não tenta esconder como foi construído. O OpenAI Codex participou
+de forma substancial da arquitetura, código, arte procedural, interface, testes,
+otimização e documentação. A direção, os objetivos, as aprovações e o julgamento
+final permanecem humanos.
+
+O próprio projeto existe para aprender a usar essa colaboração com honestidade:
+entender o código, registrar decisões, medir resultados e nunca confundir uma
+simulação bonita com autonomia real.
+
+## 🌿 Código aberto
+
+O código original do Agentarium está disponível sob a [licença MIT](./LICENSE).
+Dependências mantêm suas próprias licenças. Ideias, issues e pull requests são
+bem-vindos enquanto respeitarem a proposta local-first, segura e educacional.
+
+<div align="center">
+  <p>༺ 🌲 ✦ 🏰 ✦ 🌲 ༻</p>
+  <strong>Que cada missão deixe o reino mais sábio.</strong>
+  <br />
+  <sub>construído com código, curiosidade e um pouco de magia procedural</sub>
+</div>

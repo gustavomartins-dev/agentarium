@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+  width="320"
+  height="360"
+  viewBox="0 0 320 360"
+  role="img"
+  aria-labelledby="agentarium-crest-title agentarium-crest-desc"
+  shape-rendering="crispEdges">
+  <title id="agentarium-crest-title">Brasão do Agentarium</title>
+  <desc id="agentarium-crest-desc">Brasão medieval em pixel art com um castelo entre árvores e uma runa estrelada representando inteligência artificial.</desc>
+
+  <!-- Galhos e folhas da floresta, formando uma moldura simétrica. -->
+  <g fill="none" stroke="#17130f" stroke-width="10" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M84 302H68V282H52V254H40V214H32V170"/>
+    <path d="M236 302H252V282H268V254H280V214H288V170"/>
+  </g>
+  <g fill="#789249" stroke="#17130f" stroke-width="6">
+    <path d="M35 196H13V170H35L49 184Z"/>
+    <path d="M47 235H21V209H47L61 222Z"/>
+    <path d="M61 271H35V245H61L75 258Z"/>
+    <path d="M285 196H307V170H285L271 184Z"/>
+    <path d="M273 235H299V209H273L259 222Z"/>
+    <path d="M259 271H285V245H259L245 258Z"/>
+  </g>
+  <g fill="#e5ad45" stroke="#17130f" stroke-width="5">
+    <rect x="25" y="151" width="14" height="14" transform="rotate(45 32 158)"/>
+    <rect x="281" y="151" width="14" height="14" transform="rotate(45 288 158)"/>
+  </g>
+
+  <!-- Escudo em camadas para manter uma silhueta forte em tamanho reduzido. -->
+  <path fill="#17130f" d="M42 36H278V215H270V247H254V271H238V291H214V311H184V329H160V343H136V329H106V311H82V291H66V271H50V247H42Z"/>
+  <path fill="#e5ad45" d="M52 47H268V213H260V243H244V267H228V285H204V303H178V319H160V330H142V319H116V303H92V285H76V267H60V243H52Z"/>
+  <path fill="#17130f" d="M64 59H256V211H248V239H232V261H216V279H192V297H170V311H150V311H150L128 297H104V279H88V261H72V239H64Z"/>
+  <path fill="#77352f" d="M75 70H245V207H237V235H221V257H205V273H183V289H160V302H137V289H115V273H99V257H83V235H75Z"/>
+
+  <!-- Faixas internas lembram placas de metal forjado. -->
+  <path fill="#8f453c" d="M75 70H245V91H75Z"/>
+  <path fill="#672b28" d="M75 207H83V235H99V257H115V273H137V289H160V302H137V289H115V273H99V257H83V235H75Z"/>
+  <g fill="#e9cf91">
+    <rect x="83" y="77" width="8" height="8"/>
+    <rect x="229" y="77" width="8" height="8"/>
+    <rect x="83" y="211" width="8" height="8"/>
+    <rect x="229" y="211" width="8" height="8"/>
+  </g>
+
+  <!-- Runa-estelar: conhecimento mágico e inteligência em rede. -->
+  <g stroke="#17130f" stroke-width="6" stroke-linejoin="miter">
+    <path fill="#e5ad45" d="M160 49L171 67L190 70L176 84L180 104L160 94L140 104L144 84L130 70L149 67Z"/>
+    <path fill="#e9cf91" d="M160 62L166 73L178 76L169 85L171 94L160 89L149 94L151 85L142 76L154 73Z"/>
+    <rect x="155" y="75" width="10" height="10" fill="#17130f" transform="rotate(45 160 80)"/>
+  </g>
+  <g fill="#e5ad45" stroke="#17130f" stroke-width="4">
+    <rect x="112" y="74" width="9" height="9"/>
+    <rect x="199" y="74" width="9" height="9"/>
+    <rect x="156" y="28" width="9" height="9"/>
+  </g>
+  <g fill="#17130f">
+    <rect x="121" y="77" width="14" height="4"/>
+    <rect x="185" y="77" width="14" height="4"/>
+    <rect x="159" y="37" width="4" height="13"/>
+  </g>
+
+  <!-- Bosque em planos pixelizados. -->
+  <g stroke="#17130f" stroke-width="6" stroke-linejoin="miter">
+    <g>
+      <path fill="#789249" d="M101 119L79 147H91L69 177H86L61 210H141L116 177H132L110 147H122Z"/>
+      <path fill="#4f6836" d="M101 119V210H61L86 177H69L91 147H79Z"/>
+      <rect x="95" y="194" width="15" height="32" fill="#e9cf91"/>
+    </g>
+    <g>
+      <path fill="#789249" d="M219 119L197 147H209L187 177H204L179 210H259L234 177H251L229 147H241Z"/>
+      <path fill="#4f6836" d="M219 119V210H179L204 177H187L209 147H197Z"/>
+      <rect x="210" y="194" width="15" height="32" fill="#e9cf91"/>
+    </g>
+  </g>
+
+  <!-- Fortaleza central, pequena e sólida como o coração da vila. -->
+  <g stroke="#17130f" stroke-width="6" stroke-linejoin="miter">
+    <path fill="#e9cf91" d="M116 136H130V119H145V136H175V119H190V136H204V220H116Z"/>
+    <path fill="#d0ad67" d="M116 136H132V220H116ZM188 136H204V220H188Z"/>
+    <path fill="#e5ad45" d="M132 151H188V220H132Z"/>
+    <path fill="#d0ad67" d="M132 151H145V220H132Z"/>
+    <rect x="110" y="210" width="100" height="19" fill="#e9cf91"/>
+  </g>
+  <g fill="#77352f" stroke="#17130f" stroke-width="5">
+    <rect x="122" y="154" width="13" height="22"/>
+    <rect x="185" y="154" width="13" height="22"/>
+    <rect x="151" y="166" width="18" height="20"/>
+    <path d="M146 229V207C146 190 174 190 174 207V229Z"/>
+  </g>
+  <g fill="#e5ad45">
+    <rect x="126" y="158" width="5" height="8"/>
+    <rect x="189" y="158" width="5" height="8"/>
+    <rect x="156" y="170" width="8" height="8"/>
+  </g>
+
+  <!-- Clareira, rio de luz e caminho até a vila. -->
+  <path fill="#789249" stroke="#17130f" stroke-width="6" d="M81 226H239L226 251H207L192 269H177L160 286L143 269H128L113 251H94Z"/>
+  <path fill="#e9cf91" stroke="#17130f" stroke-width="5" d="M151 226H169L174 249L168 267L160 286L152 267L146 249Z"/>
+  <g fill="#e5ad45">
+    <rect x="157" y="233" width="6" height="8"/>
+    <rect x="155" y="250" width="10" height="7"/>
+    <rect x="157" y="268" width="6" height="7"/>
+  </g>
+
+  <!-- Três gemas representam observar, criar e aprender. -->
+  <g stroke="#17130f" stroke-width="5">
+    <rect x="102" y="294" width="14" height="14" fill="#789249" transform="rotate(45 109 301)"/>
+    <rect x="153" y="316" width="14" height="14" fill="#e9cf91" transform="rotate(45 160 323)"/>
+    <rect x="204" y="294" width="14" height="14" fill="#789249" transform="rotate(45 211 301)"/>
+  </g>
+</svg>

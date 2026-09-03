@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./docs/assets/agentarium-crest.svg" width="230" alt="Agentarium crest with a tower, golden rune, and trees on a medieval shield" />
+  <img src="./docs/assets/agentarium-project-crest.png" width="240" alt="Agentarium crest with an arcane tower, golden agent pathways, and pine trees" />
   <h1>⚔️ Agentarium 🌿</h1>
   <p><strong>A living medieval village where you can create, observe, and learn from AI agents.</strong></p>
   <p>Projects become expeditions, tasks become quests, and every agent finds a place in the realm.</p>
